@@ -32,6 +32,11 @@ class AbsencesPayloadEntityMapper
         type: dto.type.toLowerCase().contains("vacation")
             ? Type.VACATION
             : Type.SICKNESS,
+        status: dto.rejectedAt == null && dto.confirmedAt == null
+            ? Status.REQUESTED
+            : dto.confirmedAt != null
+                ? Status.CONFIRMED
+                : Status.REJECTED,
         userId: dto.userId);
   }
 }

@@ -14,3 +14,15 @@ class GetAllMembersEvent extends HomeEvent {
   @override
   List<Object?> get props => [DateTime.now().microsecond];
 }
+
+class GetMemberDataEvent extends HomeEvent {
+  final int id;
+  const GetMemberDataEvent({required this.id});
+  @override
+  List<Object?> get props => [DateTime.now().microsecond];
+}
+
+class GetAbsenceEvent extends HomeEvent {
+  @override
+  List<Object?> get props => [DateTime.now().microsecond];
+}

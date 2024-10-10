@@ -29,7 +29,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp.router(
       title: 'Crewmeister',
       theme: ThemeData(
-          useMaterial3: true, textTheme: GoogleFonts.openSansTextTheme()),
+          useMaterial3: true, textTheme: GoogleFonts.ralewayTextTheme()),
       debugShowCheckedModeBanner: false,
       routerConfig: appRouter.config(),
     );

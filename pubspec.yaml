@@ -37,7 +37,6 @@ dependencies:
   cupertino_icons: ^1.0.6
   flutter_bloc: ^8.1.2
   meta: ^1.8.0
-  dio: 5.1.0
   injectable: 2.1.0
   get_it: 7.2.0
   google_fonts: ^4.0.3
@@ -49,8 +48,7 @@ dependencies:
   json_annotation: ^4.8.0
   custom_refresh_indicator: ^4.0.1
   auto_route:
-  uuid:
-  path_provider: ^2.1.4
+  lottie: ^3.1.2
 
 
 dev_dependencies:
@@ -86,7 +84,8 @@ flutter:
   assets:
     - assets/json/absences.json
     - assets/json/members.json
-
+    - assets/json/loading.json
+    - assets/json/error.json
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

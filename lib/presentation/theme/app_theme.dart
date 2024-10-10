@@ -37,13 +37,13 @@ abstract class AppColorScheme extends ColorScheme {
 class _LightColorScheme extends AppColorScheme {
   const _LightColorScheme._()
       : super._light(
-            primary: const Color(0xff002873),
+            primary: Colors.black,
             onPrimary: const Color(0xff08435A),
             onSecondary: const Color(0xff2186AB),
-            background: Colors.white);
+            background: const Color(0xffE5EAEA));
 
   @override
-  final Color backgroundColor = Colors.white;
+  final Color backgroundColor = const Color(0xffE5EAEA);
 }
 
 class _DarkColorScheme extends AppColorScheme {
@@ -52,7 +52,7 @@ class _DarkColorScheme extends AppColorScheme {
             primary: const Color(0xff002873),
             onPrimary: const Color(0xff08435A),
             onSecondary: const Color(0xff2186AB),
-            background: Colors.white);
+            background: const Color(0xffE5EAEA));
 
   @override
   Color get backgroundColor => throw UnimplementedError();
