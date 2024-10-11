@@ -56,24 +56,27 @@ class HomeBloc extends BaseBloc<HomeEvent, HomeState> {
     if (blocData.endIndex > blocData.totalLength) {
       blocData = blocData.copyWith(endIndex: blocData.totalLength);
     }
-    Iterable<AbsencePayload> tempList = blocData.absences!.payload
+    Iterable<AbsencePayload> newAbsences = blocData.absences!.payload
         .getRange(blocData.startIndex, blocData.endIndex);
-    List<AbsencePayload> visibleList = [...blocData.visibleList, ...tempList];
+    List<AbsencePayload> updatedVisibleList = [
+      ...blocData.visibleList,
+      ...newAbsences
+    ];
     blocData = blocData.copyWith(
-        visibleList: visibleList,
+        visibleList: updatedVisibleList,
         startIndex: blocData.endIndex,
         endIndex: blocData.endIndex + blocData.limit);
     emit(AbsenceLoadedState(
         absencesList: blocData.visibleList, length: blocData.totalLength));
   }
 
-  String getMemberName(int id) {
+  MembersPayload? getMemberData(int id) {
     Iterable<MembersPayload> tempMembers = blocData.members!.payload;
     MembersPayload? member =
         tempMembers.firstWhereOrNull((e) => e.userId == id);
     if (member != null) {
-      return member.name;
+      return member;
     }
-    return "";
+    return null;
   }
 }

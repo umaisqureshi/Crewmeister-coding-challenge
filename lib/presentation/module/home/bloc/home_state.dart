@@ -20,10 +20,3 @@ class AbsenceLoadedState extends HomeState {
   @override
   List<Object?> get props => [absencesList.length];
 }
-
-class MemberDataLoadedState extends HomeState {
-  final MembersPayload member;
-  MemberDataLoadedState({required this.member});
-  @override
-  List<Object?> get props => [DateTime.now().microsecond];
-}

@@ -20,14 +20,14 @@ abstract class $AppRouter extends _i2.RootStackRouter {
     HomeRouteProvider.name: (routeData) {
       return _i2.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i1.HomeScreenProvider(),
+        child: const _i1.HomeRouteProvider(),
       );
     }
   };
 }
 
 /// generated route for
-/// [_i1.HomeScreenProvider]
+/// [_i1.HomeRouteProvider]
 class HomeRouteProvider extends _i2.PageRouteInfo<void> {
   const HomeRouteProvider({List<_i2.PageRouteInfo>? children})
       : super(

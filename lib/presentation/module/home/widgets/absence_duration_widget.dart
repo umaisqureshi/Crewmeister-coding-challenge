@@ -20,7 +20,7 @@ class AbsenceDurationWidget extends StatelessWidget {
         ),
         Text(
           "${DateFormatter.convertDateFormat(start)} - ${DateFormatter.convertDateFormat(end)}",
-          style: GoogleFonts.aBeeZee(
+          style: GoogleFonts.inter(
               fontSize: 10,
               fontWeight: FontWeight.w500,
               color: Colors.grey[600]),

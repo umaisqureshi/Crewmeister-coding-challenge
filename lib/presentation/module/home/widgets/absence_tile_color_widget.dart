@@ -1,13 +1,15 @@
 import 'package:crewmeister_coding_challenge/presentation/presentation.dart';
 
-class AbsenceStatusColorWidget extends StatelessWidget {
+class AbsenceTileColorWidget extends StatelessWidget {
   final Status status;
-  const AbsenceStatusColorWidget({super.key, required this.status});
+  final double height;
+  const AbsenceTileColorWidget(
+      {super.key, required this.status, required this.height});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: context.screenSize.height * 0.12,
+      height: height,
       width: context.screenSize.width * 0.05,
       decoration: BoxDecoration(
           color: status == Status.REJECTED

@@ -21,11 +21,13 @@ export 'package:crewmeister_coding_challenge/presentation/widget/loading_widget.
 export 'package:crewmeister_coding_challenge/presentation/widget/error_widget.dart';
 export 'package:crewmeister_coding_challenge/presentation/module/home/widgets/absence_list_widget.dart';
 export 'package:crewmeister_coding_challenge/presentation/module/home/widgets/absence_tile_widget.dart';
-export 'package:crewmeister_coding_challenge/presentation/module/home/widgets/absence_status_color_widget.dart';
+export 'package:crewmeister_coding_challenge/presentation/module/home/widgets/absence_tile_color_widget.dart';
 export 'package:crewmeister_coding_challenge/presentation/base/component/widget_component.dart';
 export 'package:crewmeister_coding_challenge/presentation/module/home/widgets/absence_count_widget.dart';
-export 'package:crewmeister_coding_challenge/presentation/module/home/widgets/member_name_widget.dart';
+export 'package:crewmeister_coding_challenge/presentation/module/home/widgets/member_detail_widget.dart';
 export 'package:crewmeister_coding_challenge/presentation/utils/date_formatter.dart';
 export 'package:google_fonts/google_fonts.dart';
 export 'package:crewmeister_coding_challenge/presentation/module/home/widgets/absence_duration_widget.dart';
-export 'package:crewmeister_coding_challenge/presentation/module/home/widgets/absence_type_widget.dart';
+export 'package:crewmeister_coding_challenge/presentation/module/home/widgets/absence_status_widget.dart';
+export 'package:cached_network_image/cached_network_image.dart';
+export 'package:crewmeister_coding_challenge/presentation/module/home/widgets/note_widget.dart';
