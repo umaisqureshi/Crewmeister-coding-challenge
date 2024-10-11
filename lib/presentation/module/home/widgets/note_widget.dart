@@ -26,8 +26,10 @@ class _NoteWidgetState extends State<NoteWidget> {
       children: [
         Text(
           widget.byAdmin ? "Admin note :" : "Member note :",
-          style: const TextStyle(
-              fontWeight: FontWeight.w600, fontSize: 12, color: Colors.black),
+          style: TextStyle(
+              fontWeight: FontWeight.w600,
+              fontSize: 12,
+              color: context.appColorScheme.onSecondary),
         ),
         const SizedBox(
           height: 5,
@@ -39,9 +41,12 @@ class _NoteWidgetState extends State<NoteWidget> {
             readOnly: true,
             maxLines: 2,
             minLines: 1,
-            style: const TextStyle(fontSize: 10, fontWeight: FontWeight.w500),
+            style: TextStyle(
+                fontSize: 10,
+                fontWeight: FontWeight.w500,
+                color: context.appColorScheme.onSecondary),
             decoration: InputDecoration(
-              fillColor: Colors.grey[100],
+              fillColor: context.appColorScheme.shadow,
               filled: true,
               border: InputBorder.none,
               contentPadding: const EdgeInsets.all(8.0),

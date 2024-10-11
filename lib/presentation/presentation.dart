@@ -31,3 +31,5 @@ export 'package:crewmeister_coding_challenge/presentation/module/home/widgets/ab
 export 'package:crewmeister_coding_challenge/presentation/module/home/widgets/absence_status_widget.dart';
 export 'package:cached_network_image/cached_network_image.dart';
 export 'package:crewmeister_coding_challenge/presentation/module/home/widgets/note_widget.dart';
+export 'package:crewmeister_coding_challenge/presentation/theme/app_theme.dart';
+export 'package:crewmeister_coding_challenge/presentation/theme/app_theme_stuff.dart';

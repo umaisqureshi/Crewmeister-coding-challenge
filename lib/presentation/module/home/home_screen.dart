@@ -1,4 +1,5 @@
 import 'package:crewmeister_coding_challenge/presentation/presentation.dart';
+import 'package:crewmeister_coding_challenge/presentation/theme/app_theme.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -13,6 +14,9 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
     context.read<HomeBloc>().add(GetAllMembersEvent());
   }
+
+  bool isLightTheme = true;
+  ThemeStuff appValueNotifier = ThemeStuff.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -38,19 +42,64 @@ class _HomeScreenState extends State<HomeScreen> {
                   style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: context.appColorScheme.primary),
+                      color: context.appColorScheme.onSecondary),
                 ),
-                Container(
-                  height: 40,
-                  width: 40,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(40),
-                    color: Colors.white,
-                  ),
-                  child: Icon(
-                    Icons.filter_list,
-                    color: context.appColorScheme.primary,
-                  ),
+                Row(
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        if (isLightTheme) {
+                          appValueNotifier.updateValue(AppColorScheme.dark());
+                        } else {
+                          appValueNotifier.updateValue(AppColorScheme.light());
+                        }
+                        setState(() {
+                          isLightTheme = !isLightTheme;
+                        });
+                      },
+                      child: Container(
+                        height: 40,
+                        width: 40,
+                        decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              color: context.appColorScheme.shadow,
+                              blurRadius: 10,
+                              offset: const Offset(-2, 9),
+                            ),
+                          ],
+                          borderRadius: BorderRadius.circular(40),
+                          color: context.appColorScheme.backgroundColor,
+                        ),
+                        child: Icon(
+                          isLightTheme ? Icons.dark_mode : Icons.light_mode,
+                          color: context.appColorScheme.onSecondary,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Container(
+                      height: 40,
+                      width: 40,
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: context.appColorScheme.shadow,
+                            blurRadius: 10,
+                            offset: const Offset(-2, 9),
+                          ),
+                        ],
+                        borderRadius: BorderRadius.circular(40),
+                        color: context.appColorScheme.backgroundColor,
+                      ),
+                      child: Icon(
+                        Icons.filter_list,
+                        color: context.appColorScheme.onSecondary,
+                      ),
+                    ),
+                  ],
                 )
               ],
             ),

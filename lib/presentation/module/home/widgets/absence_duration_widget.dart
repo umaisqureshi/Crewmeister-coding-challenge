@@ -10,9 +10,9 @@ class AbsenceDurationWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const Icon(
+         Icon(
           Icons.calendar_month,
-          color: Colors.grey,
+          color: context.appColorScheme.onSecondary,
           size: 15,
         ),
         const SizedBox(
@@ -23,7 +23,7 @@ class AbsenceDurationWidget extends StatelessWidget {
           style: GoogleFonts.inter(
               fontSize: 10,
               fontWeight: FontWeight.w500,
-              color: Colors.grey[600]),
+              color: context.appColorScheme.onSecondary),
         )
       ],
     );

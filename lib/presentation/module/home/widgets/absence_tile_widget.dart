@@ -10,7 +10,14 @@ class AbsenceTileWidget extends StatelessWidget {
       height: _tileSize(context),
       width: context.screenSize.width,
       decoration: BoxDecoration(
-        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: context.appColorScheme.shadow,
+            blurRadius: 10,
+            offset: const Offset(0, 7),
+          ),
+        ],
+        color: context.appColorScheme.backgroundColor,
         borderRadius: BorderRadius.circular(10),
       ),
       child: Row(

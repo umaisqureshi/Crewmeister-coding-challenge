@@ -27,7 +27,10 @@ class _MemberDetailWidgetState extends State<MemberDetailWidget> {
           child: Text(
             member?.name ?? "Unknown",
             overflow: TextOverflow.ellipsis,
-            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 15,
+                color: context.appColorScheme.onSecondary),
           ),
         ),
         Padding(
@@ -52,9 +55,9 @@ class _MemberDetailWidgetState extends State<MemberDetailWidget> {
                 value: downloadProgress.progress,
                 color: Colors.white,
               )),
-              errorWidget: (context, url, error) => const Icon(
+              errorWidget: (context, url, error) => Icon(
                 Icons.person,
-                color: Colors.white,
+                color: context.appColorScheme.onSecondary,
               ),
             ),
           ),

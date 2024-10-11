@@ -1,25 +1,29 @@
 import 'package:crewmeister_coding_challenge/presentation/presentation.dart';
 
 abstract class AppColorScheme extends ColorScheme {
-  const AppColorScheme._light({
-    required Color primary,
-    required Color onPrimary,
-    required Color onSecondary,
-    required Color background,
-  }) : super.light(
+  const AppColorScheme._light(
+      {required Color primary,
+      required Color onPrimary,
+      required Color onSecondary,
+      required Color background,
+      required Color shadowColor})
+      : super.light(
             primary: primary,
             onPrimary: onPrimary,
+            shadow: shadowColor,
             onSecondary: onSecondary,
             background: background);
 
-  const AppColorScheme._dark({
-    required Color primary,
-    required Color onPrimary,
-    required Color onSecondary,
-    required Color background,
-  }) : super.dark(
+  const AppColorScheme._dark(
+      {required Color primary,
+      required Color onPrimary,
+      required Color onSecondary,
+      required Color background,
+      required Color shadowColor})
+      : super.dark(
             primary: primary,
             onPrimary: onPrimary,
+            shadow: shadowColor,
             onSecondary: onSecondary,
             background: background);
 
@@ -28,7 +32,7 @@ abstract class AppColorScheme extends ColorScheme {
   }
 
   factory AppColorScheme.dark() {
-    throw const _DarkColorScheme._();
+    return const _DarkColorScheme._();
   }
 
   Color get backgroundColor;
@@ -37,23 +41,25 @@ abstract class AppColorScheme extends ColorScheme {
 class _LightColorScheme extends AppColorScheme {
   const _LightColorScheme._()
       : super._light(
+            shadowColor: Colors.black12,
             primary: Colors.black,
             onPrimary: const Color(0xff08435A),
-            onSecondary: const Color(0xff2186AB),
+            onSecondary: Colors.black,
             background: const Color(0xffE5EAEA));
 
   @override
-  final Color backgroundColor = const Color(0xffE5EAEA);
+  final Color backgroundColor = Colors.white;
 }
 
 class _DarkColorScheme extends AppColorScheme {
   const _DarkColorScheme._()
       : super._dark(
-            primary: const Color(0xff002873),
+            primary: Colors.white,
+            shadowColor: Colors.white12,
             onPrimary: const Color(0xff08435A),
-            onSecondary: const Color(0xff2186AB),
-            background: const Color(0xffE5EAEA));
+            onSecondary: Colors.white,
+            background: Colors.black87);
 
   @override
-  Color get backgroundColor => throw UnimplementedError();
+  Color get backgroundColor => Colors.black;
 }
