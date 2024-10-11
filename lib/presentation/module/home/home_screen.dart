@@ -72,7 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           color: context.appColorScheme.backgroundColor,
                         ),
                         child: Icon(
-                          isLightTheme ? Icons.dark_mode : Icons.light_mode,
+                          isLightTheme ? Icons.light_mode : Icons.dark_mode,
                           color: context.appColorScheme.onSecondary,
                         ),
                       ),

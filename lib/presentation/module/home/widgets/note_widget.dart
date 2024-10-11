@@ -46,7 +46,7 @@ class _NoteWidgetState extends State<NoteWidget> {
                 fontWeight: FontWeight.w500,
                 color: context.appColorScheme.onSecondary),
             decoration: InputDecoration(
-              fillColor: context.appColorScheme.shadow,
+              fillColor: context.appColorScheme.shadow.withOpacity(0.1),
               filled: true,
               border: InputBorder.none,
               contentPadding: const EdgeInsets.all(8.0),

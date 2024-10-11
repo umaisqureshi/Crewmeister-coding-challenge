@@ -10,7 +10,7 @@ class AbsenceDurationWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-         Icon(
+        Icon(
           Icons.calendar_month,
           color: context.appColorScheme.onSecondary,
           size: 15,
@@ -22,7 +22,7 @@ class AbsenceDurationWidget extends StatelessWidget {
           "${DateFormatter.convertDateFormat(start)} - ${DateFormatter.convertDateFormat(end)}",
           style: GoogleFonts.inter(
               fontSize: 10,
-              fontWeight: FontWeight.w500,
+              fontWeight: FontWeight.w400,
               color: context.appColorScheme.onSecondary),
         )
       ],

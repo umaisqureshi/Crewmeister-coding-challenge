@@ -41,9 +41,7 @@ class AbsenceTileWidget extends StatelessWidget {
                   key: ValueKey(absence.userId),
                   userId: absence.userId,
                 ),
-                const SizedBox(
-                  height: 5,
-                ),
+
                 AbsenceDurationWidget(
                   start: absence.startDate,
                   end: absence.endDate,
