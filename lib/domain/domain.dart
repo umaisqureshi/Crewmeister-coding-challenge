@@ -6,4 +6,5 @@ export 'package:crewmeister_coding_challenge/domain/base/usecase/supplier_use_ca
 export 'package:injectable/injectable.dart';
 export 'package:crewmeister_coding_challenge/domain/repository/repository.dart';
 export 'package:crewmeister_coding_challenge/domain/members/members_entity.dart';
-
+export 'package:crewmeister_coding_challenge/presentation/utils/enums.dart';
+export 'package:crewmeister_coding_challenge/domain/base/entity.dart';

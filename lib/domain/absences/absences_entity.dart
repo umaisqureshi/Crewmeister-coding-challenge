@@ -1,4 +1,4 @@
-import 'package:crewmeister_coding_challenge/data/data.dart';
+import 'package:crewmeister_coding_challenge/domain/domain.dart';
 
 class AbsenceEntity extends Entity {
   List<AbsencePayload> payload;
@@ -38,7 +38,3 @@ class AbsencePayload extends Entity {
       required this.userId,
       required this.status});
 }
-
-enum Type { SICKNESS, VACATION }
-
-enum Status { REQUESTED, CONFIRMED, REJECTED }

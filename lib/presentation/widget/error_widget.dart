@@ -49,31 +49,30 @@ class _ErrorScreenWidgetState extends State<ErrorScreenWidget>
           style: TextStyle(
               fontSize: 13,
               fontWeight: FontWeight.bold,
-              color: context.appColorScheme.primary),
+              color: context.appColorScheme.onSecondary),
         ),
         const SizedBox(
           height: 20,
         ),
         isLoading
             ? CircularProgressIndicator(
-                color: context.appColorScheme.primary,
+                color: context.appColorScheme.onSecondary,
               )
             : ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        WidgetStatePropertyAll(context.appColorScheme.primary)),
+                style: const ButtonStyle(
+                    backgroundColor: WidgetStatePropertyAll(Colors.blueAccent)),
                 onPressed: () {
                   widget.onPressed?.call();
                   setState(() {
                     isLoading = true;
                   });
                 },
-                child: const Text(
+                child: Text(
                   "Retry",
                   style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white),
+                      color: context.appColorScheme.onSecondary),
                 )),
       ],
     );

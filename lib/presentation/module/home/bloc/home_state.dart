@@ -13,6 +13,15 @@ class HomeErrorState extends HomeState {
   List<Object?> get props => [DateTime.now().microsecond];
 }
 
+class FilterState extends HomeState {
+  final FilterType type;
+  final DateTime? start;
+  final DateTime? end;
+  FilterState({required this.type, required this.start, required this.end});
+  @override
+  List<Object?> get props => [type];
+}
+
 class AbsenceLoadedState extends HomeState {
   final List<AbsencePayload> absencesList;
   final int length;

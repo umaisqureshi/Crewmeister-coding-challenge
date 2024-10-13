@@ -1,3 +1,4 @@
+import 'package:crewmeister_coding_challenge/presentation/module/home/bloc/service/filter_service.dart';
 import 'package:crewmeister_coding_challenge/presentation/presentation.dart';
 import 'dart:developer';
 part 'home_event.dart';
@@ -7,6 +8,7 @@ part 'home_state.dart';
 class HomeBloc extends BaseBloc<HomeEvent, HomeState> {
   final GetAllAbsencesUseCase _absencesUseCase;
   final GetAllMembersUseCase _membersUseCase;
+  late FilterBlocService _filterBlocService;
   HomeBlocData blocData = const HomeBlocData();
   HomeBloc(
       {required GetAllAbsencesUseCase absencesUseCase,
@@ -14,6 +16,7 @@ class HomeBloc extends BaseBloc<HomeEvent, HomeState> {
       : _absencesUseCase = absencesUseCase,
         _membersUseCase = membersUseCase,
         super(HomeInitial()) {
+    _initFilterService();
     on<GetAbsenceEvent>((event, emit) async {
       if (blocData.startIndex >= blocData.totalLength) {
         emit(AbsenceLoadedState(
@@ -26,8 +29,40 @@ class HomeBloc extends BaseBloc<HomeEvent, HomeState> {
     on<GetAllAbsencesEvent>((event, emit) async {
       await _getAllAbsence(emit);
     });
+    on<GetFilterAbsenceEvent>((event, emit) async {
+      if (event.type != FilterType.DATE) {
+        blocData = blocData.copyWith(startDate: null, endDate: null);
+      }
+      emit(FilterState(
+          type: event.type, start: blocData.startDate, end: blocData.endDate));
+      await _getFilteredAbsence(event, emit);
+    });
     on<GetAllMembersEvent>((event, emit) async {
       await _getAllMembers(emit);
+    });
+
+    on<ClearFilterEvent>((event, emit) async {
+      blocData = blocData.copyWith(
+        filterType: FilterType.CLEAR,
+        isFilterActive: false,
+        startIndex: 0,
+        endIndex: 10,
+        startDate: null,
+        endDate: null,
+        visibleList: [],
+      );
+      emit(FilterState(
+          type: FilterType.CLEAR,
+          start: blocData.startDate,
+          end: blocData.endDate));
+      await _getAbsenceData(emit);
+    });
+
+    on<UpdateStartDateEvent>((event, emit) async {
+      blocData = blocData.copyWith(startDate: event.start);
+    });
+    on<UpdateEndDateEvent>((event, emit) async {
+      blocData = blocData.copyWith(endDate: event.end);
     });
   }
 
@@ -52,16 +87,32 @@ class HomeBloc extends BaseBloc<HomeEvent, HomeState> {
     }));
   }
 
-  _getAbsenceData(Emitter<HomeState> emit) {
+  _getFilteredAbsence(event, emit) async {
+    blocData = blocData.copyWith(
+      filterType: event.type,
+      isFilterActive: true,
+      startIndex: 0,
+      endIndex: 10,
+      visibleList: [],
+    );
+
+    await _getAbsenceData(emit);
+  }
+
+  _getAbsenceData(Emitter<HomeState> emit) async {
+    List<AbsencePayload> dataList = await getAbsenceList();
+
     if (blocData.endIndex > blocData.totalLength) {
       blocData = blocData.copyWith(endIndex: blocData.totalLength);
     }
-    Iterable<AbsencePayload> newAbsences = blocData.absences!.payload
-        .getRange(blocData.startIndex, blocData.endIndex);
+    Iterable<AbsencePayload> newAbsences =
+        dataList.getRange(blocData.startIndex, blocData.endIndex);
+
     List<AbsencePayload> updatedVisibleList = [
       ...blocData.visibleList,
       ...newAbsences
     ];
+
     blocData = blocData.copyWith(
         visibleList: updatedVisibleList,
         startIndex: blocData.endIndex,
@@ -78,5 +129,52 @@ class HomeBloc extends BaseBloc<HomeEvent, HomeState> {
       return member;
     }
     return null;
+  }
+
+  Future<List<AbsencePayload>> getAbsenceList() async {
+    if (!blocData.isFilterActive) {
+      await setTotalLength(blocData.absences!.payload.length);
+      return blocData.absences!.payload;
+    }
+    switch (blocData.filterType) {
+      case FilterType.SICKNESS:
+        if (blocData.filterByTyeSickness.isEmpty) {
+          List<AbsencePayload> sicknessList =
+              _filterBlocService.filterBySickness();
+          await setTotalLength(blocData.filterByTyeSickness.length);
+          return sicknessList;
+        }
+        return blocData.filterByTyeSickness;
+
+      case FilterType.VACATION:
+        if (blocData.filterByTypeVacation.isEmpty) {
+          List<AbsencePayload> vacationList =
+              _filterBlocService.filterByVacation();
+          await setTotalLength(blocData.filterByTypeVacation.length);
+
+          return vacationList;
+        }
+        return blocData.filterByTypeVacation;
+
+      case FilterType.DATE:
+        if (blocData.filterByDateList.isEmpty) {
+          List<AbsencePayload> dateList =
+              _filterBlocService.filterByCreatedAt();
+          await setTotalLength(blocData.filterByDateList.length);
+          return dateList;
+        }
+        return blocData.filterByDateList;
+
+      default:
+        return [];
+    }
+  }
+
+  Future<void> setTotalLength(int length) async {
+    blocData = blocData.copyWith(totalLength: length);
+  }
+
+  _initFilterService() {
+    _filterBlocService = FilterBlocService(bloc: this);
   }
 }

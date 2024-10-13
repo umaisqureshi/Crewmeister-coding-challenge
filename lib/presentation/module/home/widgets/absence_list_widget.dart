@@ -9,13 +9,24 @@ class AbsenceListWidget extends StatefulWidget {
 }
 
 class _AbsenceListWidgetState extends State<AbsenceListWidget> {
+  bool _isLoadingMore = false;
   @override
   Widget build(BuildContext context) {
     return NotificationListener<ScrollNotification>(
       onNotification: (ScrollNotification scrollInfo) {
-        if (scrollInfo.metrics.pixels >=
-            scrollInfo.metrics.maxScrollExtent - 100) {
-          context.read<HomeBloc>().add(GetAbsenceEvent());
+        if (scrollInfo.metrics.pixels >= scrollInfo.metrics.maxScrollExtent) {
+          if (!_isLoadingMore) {
+            setState(() {
+              _isLoadingMore = true;
+            });
+            context.read<HomeBloc>().add(GetAbsenceEvent());
+
+            Future.delayed(const Duration(seconds: 2), () {
+              setState(() {
+                _isLoadingMore = false;
+              });
+            });
+          }
         }
         return true;
       },

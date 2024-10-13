@@ -14,4 +14,4 @@ export 'package:crewmeister_coding_challenge/data/repository/dto/members/members
 export 'package:crewmeister_coding_challenge/data/local/mapper/members_dto_mapper.dart';
 export 'package:crewmeister_coding_challenge/domain/members/members_entity.dart';
 export 'package:crewmeister_coding_challenge/data/repository/mapper/members_entity_mapper.dart';
-
+export 'package:crewmeister_coding_challenge/presentation/utils/enums.dart';

@@ -20,8 +20,10 @@ class AbsenceCountWidget extends StatelessWidget {
           ),
           Text(
             "$count",
-            style: const TextStyle(
-                fontSize: 16, color: Colors.black, fontWeight: FontWeight.w400),
+            style: TextStyle(
+                fontSize: 16,
+                color: context.appColorScheme.onSecondary,
+                fontWeight: FontWeight.w400),
           ),
         ],
       ),

@@ -6,6 +6,9 @@ class AbsenceListComponent extends ErrorWidgetComponent<HomeBloc, HomeState,
 
   @override
   Widget buildComponent(BuildContext context, state) {
+    if (state.absencesList.isEmpty) {
+      return const EmptyListWidget();
+    }
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

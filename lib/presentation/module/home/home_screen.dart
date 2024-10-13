@@ -1,5 +1,4 @@
 import 'package:crewmeister_coding_challenge/presentation/presentation.dart';
-import 'package:crewmeister_coding_challenge/presentation/theme/app_theme.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -80,25 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     const SizedBox(
                       width: 10,
                     ),
-                    Container(
-                      height: 40,
-                      width: 40,
-                      decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: context.appColorScheme.shadow,
-                            blurRadius: 10,
-                            offset: const Offset(-2, 9),
-                          ),
-                        ],
-                        borderRadius: BorderRadius.circular(40),
-                        color: context.appColorScheme.backgroundColor,
-                      ),
-                      child: Icon(
-                        Icons.filter_list,
-                        color: context.appColorScheme.onSecondary,
-                      ),
-                    ),
+                    const FilterComponent(),
                   ],
                 )
               ],
