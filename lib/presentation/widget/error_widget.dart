@@ -45,7 +45,8 @@ class _ErrorScreenWidgetState extends State<ErrorScreenWidget>
             ..repeat();
         }, controller: _controller, height: 250, width: 250)),
         Text(
-          "Something went wrong. Please Try again",
+          "Error while loading data. \nPlease try again",
+          textAlign: TextAlign.center,
           style: TextStyle(
               fontSize: 13,
               fontWeight: FontWeight.bold,
@@ -59,8 +60,10 @@ class _ErrorScreenWidgetState extends State<ErrorScreenWidget>
                 color: context.appColorScheme.onSecondary,
               )
             : ElevatedButton(
-                style: const ButtonStyle(
-                    backgroundColor: WidgetStatePropertyAll(Colors.blueAccent)),
+                style: ButtonStyle(
+                    elevation: const WidgetStatePropertyAll(10),
+                    backgroundColor: WidgetStatePropertyAll(
+                        context.appColorScheme.onSecondary)),
                 onPressed: () {
                   widget.onPressed?.call();
                   setState(() {
@@ -70,9 +73,9 @@ class _ErrorScreenWidgetState extends State<ErrorScreenWidget>
                 child: Text(
                   "Retry",
                   style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 14,
                       fontWeight: FontWeight.bold,
-                      color: context.appColorScheme.onSecondary),
+                      color: context.appColorScheme.backgroundColor),
                 )),
       ],
     );

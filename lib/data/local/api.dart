@@ -17,12 +17,22 @@ class ApiService {
   }
 
   Future<AbsenceDto> absences() async {
-    Map<String, dynamic> absences = await readJsonFile(absencesPath);
+    Map<String, dynamic> absences = {};
+    try {
+      absences = await readJsonFile(absencesPath);
+    } catch (e) {
+      throw Exception(e.toString());
+    }
     return _absenceDtoMapper.mapDtoToData(absences);
   }
 
   Future<MembersDto> members() async {
-    Map<String, dynamic> members = await readJsonFile(membersPath);
+    Map<String, dynamic> members = {};
+    try {
+      members = await readJsonFile(membersPath);
+    } catch (e) {
+      throw Exception(e.toString());
+    }
     return _membersDtoMapper.mapDtoToData(members);
   }
 }
