@@ -8,7 +8,7 @@ part 'home_state.dart';
 class HomeBloc extends BaseBloc<HomeEvent, HomeState> {
   final GetAllAbsencesUseCase _absencesUseCase;
   final GetAllMembersUseCase _membersUseCase;
-  late FilterBlocService _filterBlocService;
+  late FilterBlocService filterBlocService;
   HomeBlocData blocData = const HomeBlocData();
   HomeBloc(
       {required GetAllAbsencesUseCase absencesUseCase,
@@ -52,7 +52,7 @@ class HomeBloc extends BaseBloc<HomeEvent, HomeState> {
         visibleList: [],
       );
       emit(FilterState(
-          type: FilterType.CLEAR,
+          type: blocData.filterType,
           start: blocData.startDate,
           end: blocData.endDate));
       await _getAbsenceData(emit);
@@ -140,7 +140,7 @@ class HomeBloc extends BaseBloc<HomeEvent, HomeState> {
       case FilterType.SICKNESS:
         if (blocData.filterByTyeSickness.isEmpty) {
           List<AbsencePayload> sicknessList =
-              _filterBlocService.filterBySickness();
+              filterBlocService.filterBySickness();
           await setTotalLength(blocData.filterByTyeSickness.length);
           return sicknessList;
         }
@@ -149,7 +149,7 @@ class HomeBloc extends BaseBloc<HomeEvent, HomeState> {
       case FilterType.VACATION:
         if (blocData.filterByTypeVacation.isEmpty) {
           List<AbsencePayload> vacationList =
-              _filterBlocService.filterByVacation();
+              filterBlocService.filterByVacation();
           await setTotalLength(blocData.filterByTypeVacation.length);
 
           return vacationList;
@@ -158,8 +158,7 @@ class HomeBloc extends BaseBloc<HomeEvent, HomeState> {
 
       case FilterType.DATE:
         if (blocData.filterByDateList.isEmpty) {
-          List<AbsencePayload> dateList =
-              _filterBlocService.filterByCreatedAt();
+          List<AbsencePayload> dateList = filterBlocService.filterByCreatedAt();
           await setTotalLength(blocData.filterByDateList.length);
           return dateList;
         }
@@ -175,6 +174,6 @@ class HomeBloc extends BaseBloc<HomeEvent, HomeState> {
   }
 
   _initFilterService() {
-    _filterBlocService = FilterBlocService(bloc: this);
+    filterBlocService = FilterBlocService(bloc: this);
   }
 }
