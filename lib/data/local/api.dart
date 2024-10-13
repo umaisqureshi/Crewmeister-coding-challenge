@@ -1,10 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
-
 import 'package:crewmeister_coding_challenge/data/data.dart';
-
-const absencesPath = 'assets/json/absences.json';
-const membersPath = 'assets/json/members.json';
 
 class ApiService {
   final AbsenceDtoMapper _absenceDtoMapper = AbsenceDtoMapper();
