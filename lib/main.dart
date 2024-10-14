@@ -1,6 +1,7 @@
+import 'package:crewmeister_coding_challenge/application/routing/app_router.dart';
+import 'package:crewmeister_coding_challenge/di/app_dependency.dart';
 import 'package:crewmeister_coding_challenge/presentation/presentation.dart';
 import 'package:flutter/services.dart';
-import 'infrastucture/di/app_dependency.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

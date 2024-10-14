@@ -18,7 +18,7 @@ abstract class ErrorWidgetComponent<
         if (state is ErrorState) {
           return buildError(context, state);
         }
-        return buildEmpty(context);
+        return buildLoading(context);
       },
       buildWhen: (previous, current) => rebuildCondition(previous, current),
     );
@@ -27,7 +27,7 @@ abstract class ErrorWidgetComponent<
   void onInit(BuildContext context) {}
 
   Widget buildComponent(BuildContext context, CurrentState state);
-  Widget buildEmpty(BuildContext context);
+  Widget buildLoading(BuildContext context);
   Widget buildError(BuildContext context, ErrorState errorState);
   bool rebuildCondition(BlocState? previous, BlocState? current) {
     return current is CurrentState || current is ErrorState;

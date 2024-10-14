@@ -18,8 +18,8 @@ class AbsencesPayloadEntityMapper
         rejectedAt: dto.rejectedAt,
         startDate: dto.startDate,
         type: dto.type.toLowerCase().contains("vacation")
-            ? Type.VACATION
-            : Type.SICKNESS,
+            ? AbsenceType.VACATION
+            : AbsenceType.SICKNESS,
         status: dto.rejectedAt == null && dto.confirmedAt == null
             ? Status.REQUESTED
             : dto.confirmedAt != null

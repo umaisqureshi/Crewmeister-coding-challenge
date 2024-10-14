@@ -1,0 +1,5 @@
+enum AbsenceType { SICKNESS, VACATION }
+
+enum Status { REQUESTED, CONFIRMED, REJECTED }
+
+enum FilterType { SICKNESS, VACATION, DATE, CLEAR }
