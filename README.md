@@ -1,7 +1,29 @@
-# Crewmeister coding challenge
+<p align="center">
+  <img src="https://crewmeister.com/images/logo_crewmeister_without_text.svg" />
+</p>
+
+# 🚀 Crewmeister coding challenge - Frontend (Flutter)
 
 A Flutter project with Clean Architecture using Flutter Bloc State Management with
 combination of Repository pattern.
+
+## Product Features
+
+- List of absences including the names of the employees.
+- See the first 10 absences, with the ability to paginate.
+- See a total number of absences.
+- For each absence:
+  - Member name
+  - Type of absence
+  - Period
+  - Member note (when available)
+  - Status (can be 'Requested', 'Confirmed' or 'Rejected')
+  -  Admitter note (when available)
+- Filter absences by type.
+- Filter absences by date.
+- Loading state until the list is available.
+- Error state if the list is unavailable.
+- Empty state if there are no results.
 
 # Commands
 - Test : flutter test test
