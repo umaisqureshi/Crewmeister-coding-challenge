@@ -1,4 +1,4 @@
-import 'package:crewmeister_coding_challenge/presentation/module/home/bloc/service/filter_service.dart';
+import 'package:crewmeister_coding_challenge/presentation/module/home/bloc/service/filter_bloc_service.dart';
 import 'package:crewmeister_coding_challenge/presentation/presentation.dart';
 import 'dart:developer';
 part 'home_event.dart';

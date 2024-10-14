@@ -1,4 +1,4 @@
-# crewmeister_coding_challenge
+# Crewmeister coding challenge
 
 A Flutter project with Clean Architecture using Flutter Bloc State Management with
 combination of Repository pattern.
@@ -24,7 +24,7 @@ more `Separation of Concern`.
 
 The most important things in multi package project is, we try to make the most abstract between layers.
 So when we want to make a class or unit visible to other modules, we have to export the class. e.g : we want to
-export `HotelBloc` inside the `presentation` layer.
+export `HomeBloc` inside the `presentation` layer.
 inside `presentation.dart` we have to export it:
 
 ```
@@ -45,10 +45,7 @@ base on  [effective dart](https://dart.dev/guides/language/effective-dart/style)
 - name import prefixes using lowercase_with_underscores : `import package:domain/domain.dart as business_logic`
 - using lowerCamelCase for constant names : `const defaultTimeout = 1000;`
 - using _, __, etc. for unused callback parameters
-- **DO NOT** use `impl` postfix for implementation of abstract class. If it's subtype of that class it should define why
-  it is created. e.g: we have `repository` in domain and when we want to implement it in data layer, it should name
-  as `RepositoryImplementation`
--
+
 **note** by using some libraries to create bloc, maybe naming would have different style. conventions below are for
 bloc
 - `bloc` files name should **not** contain two bloc : `home_bloc_bloc`

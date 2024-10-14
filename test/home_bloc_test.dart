@@ -3,7 +3,7 @@ import 'package:crewmeister_coding_challenge/data/data.dart';
 import 'package:crewmeister_coding_challenge/domain/absences/get_all_absences_use_case.dart';
 import 'package:crewmeister_coding_challenge/domain/base/use_case_result.dart';
 import 'package:crewmeister_coding_challenge/domain/members/get_all_members_use_case.dart';
-import 'package:crewmeister_coding_challenge/presentation/module/home/bloc/service/filter_service.dart';
+import 'package:crewmeister_coding_challenge/presentation/module/home/bloc/service/filter_bloc_service.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:crewmeister_coding_challenge/presentation/module/home/bloc/home_bloc.dart';
 import 'package:mocktail/mocktail.dart';
