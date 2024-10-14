@@ -1,24 +1,10 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'absence_dto.dart';
+part of 'absence_payload_dto.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
-
-_$AbsenceDtoImpl _$$AbsenceDtoImplFromJson(Map<String, dynamic> json) =>
-    _$AbsenceDtoImpl(
-      message: json['message'] as String,
-      payload: (json['payload'] as List<dynamic>)
-          .map((e) => AbsencePayloadDto.fromJson(e as Map<String, dynamic>))
-          .toList(),
-    );
-
-Map<String, dynamic> _$$AbsenceDtoImplToJson(_$AbsenceDtoImpl instance) =>
-    <String, dynamic>{
-      'message': instance.message,
-      'payload': instance.payload,
-    };
 
 _$AbsencePayloadDtoImpl _$$AbsencePayloadDtoImplFromJson(
         Map<String, dynamic> json) =>

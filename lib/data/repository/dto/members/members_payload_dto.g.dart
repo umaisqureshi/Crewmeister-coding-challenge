@@ -1,24 +1,10 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'members_dto.dart';
+part of 'members_payload_dto.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
-
-_$MembersDtoImpl _$$MembersDtoImplFromJson(Map<String, dynamic> json) =>
-    _$MembersDtoImpl(
-      message: json['message'] as String,
-      payload: (json['payload'] as List<dynamic>)
-          .map((e) => MembersPayloadDto.fromJson(e as Map<String, dynamic>))
-          .toList(),
-    );
-
-Map<String, dynamic> _$$MembersDtoImplToJson(_$MembersDtoImpl instance) =>
-    <String, dynamic>{
-      'message': instance.message,
-      'payload': instance.payload,
-    };
 
 _$MembersPayloadDtoImpl _$$MembersPayloadDtoImplFromJson(
         Map<String, dynamic> json) =>

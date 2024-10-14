@@ -1,17 +1,8 @@
 import 'package:crewmeister_coding_challenge/data/data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'absence_dto.freezed.dart';
-part 'absence_dto.g.dart';
-
-@freezed
-class AbsenceDto with _$AbsenceDto implements Dto {
-  const factory AbsenceDto(
-      {required String message,
-      required List<AbsencePayloadDto> payload}) = _AbsenceDto;
-  factory AbsenceDto.fromJson(Map<String, dynamic> json) =>
-      _$AbsenceDtoFromJson(json);
-}
+part 'absence_payload_dto.freezed.dart';
+part 'absence_payload_dto.g.dart';
 
 @freezed
 class AbsencePayloadDto with _$AbsencePayloadDto implements Dto {

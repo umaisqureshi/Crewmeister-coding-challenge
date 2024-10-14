@@ -5,7 +5,7 @@ class FilterBlocService {
   const FilterBlocService({required HomeBloc bloc}) : _bloc = bloc;
 
   List<AbsencePayload> filterByCreatedAt() {
-    List<AbsencePayload> filterByDate = _bloc.blocData.absences!.payload;
+    List<AbsencePayload> filterByDate = _bloc.blocData.absences;
     DateTime startDate = _bloc.blocData.startDate ?? DateTime.now();
     DateTime endDate = _bloc.blocData.endDate ?? DateTime.now();
 
@@ -21,7 +21,7 @@ class FilterBlocService {
   }
 
   List<AbsencePayload> filterBySickness() {
-    List<AbsencePayload> filterBySickness = _bloc.blocData.absences!.payload;
+    List<AbsencePayload> filterBySickness = _bloc.blocData.absences;
     Iterable<AbsencePayload> sickness =
         filterBySickness.where((e) => e.type == Type.SICKNESS);
     _bloc.blocData =
@@ -30,7 +30,7 @@ class FilterBlocService {
   }
 
   List<AbsencePayload> filterByVacation() {
-    List<AbsencePayload> filterBySickness = _bloc.blocData.absences!.payload;
+    List<AbsencePayload> filterBySickness = _bloc.blocData.absences;
     Iterable<AbsencePayload> vacation =
         filterBySickness.where((e) => e.type == Type.VACATION);
     _bloc.blocData =

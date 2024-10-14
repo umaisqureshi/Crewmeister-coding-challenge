@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$HomeBlocData {
-  AbsenceEntity? get absences => throw _privateConstructorUsedError;
+  List<AbsencePayload> get absences => throw _privateConstructorUsedError;
   List<AbsencePayload> get visibleList => throw _privateConstructorUsedError;
   List<AbsencePayload> get filterByDateList =>
       throw _privateConstructorUsedError;
@@ -24,7 +24,7 @@ mixin _$HomeBlocData {
       throw _privateConstructorUsedError;
   List<AbsencePayload> get filterByTypeVacation =>
       throw _privateConstructorUsedError;
-  MembersEntity? get members => throw _privateConstructorUsedError;
+  List<MembersPayload> get members => throw _privateConstructorUsedError;
   DateTime? get startDate => throw _privateConstructorUsedError;
   DateTime? get endDate => throw _privateConstructorUsedError;
   FilterType get filterType => throw _privateConstructorUsedError;
@@ -46,12 +46,12 @@ abstract class $HomeBlocDataCopyWith<$Res> {
       _$HomeBlocDataCopyWithImpl<$Res, HomeBlocData>;
   @useResult
   $Res call(
-      {AbsenceEntity? absences,
+      {List<AbsencePayload> absences,
       List<AbsencePayload> visibleList,
       List<AbsencePayload> filterByDateList,
       List<AbsencePayload> filterByTyeSickness,
       List<AbsencePayload> filterByTypeVacation,
-      MembersEntity? members,
+      List<MembersPayload> members,
       DateTime? startDate,
       DateTime? endDate,
       FilterType filterType,
@@ -75,12 +75,12 @@ class _$HomeBlocDataCopyWithImpl<$Res, $Val extends HomeBlocData>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? absences = freezed,
+    Object? absences = null,
     Object? visibleList = null,
     Object? filterByDateList = null,
     Object? filterByTyeSickness = null,
     Object? filterByTypeVacation = null,
-    Object? members = freezed,
+    Object? members = null,
     Object? startDate = freezed,
     Object? endDate = freezed,
     Object? filterType = null,
@@ -91,10 +91,10 @@ class _$HomeBlocDataCopyWithImpl<$Res, $Val extends HomeBlocData>
     Object? endIndex = null,
   }) {
     return _then(_value.copyWith(
-      absences: freezed == absences
+      absences: null == absences
           ? _value.absences
           : absences // ignore: cast_nullable_to_non_nullable
-              as AbsenceEntity?,
+              as List<AbsencePayload>,
       visibleList: null == visibleList
           ? _value.visibleList
           : visibleList // ignore: cast_nullable_to_non_nullable
@@ -111,10 +111,10 @@ class _$HomeBlocDataCopyWithImpl<$Res, $Val extends HomeBlocData>
           ? _value.filterByTypeVacation
           : filterByTypeVacation // ignore: cast_nullable_to_non_nullable
               as List<AbsencePayload>,
-      members: freezed == members
+      members: null == members
           ? _value.members
           : members // ignore: cast_nullable_to_non_nullable
-              as MembersEntity?,
+              as List<MembersPayload>,
       startDate: freezed == startDate
           ? _value.startDate
           : startDate // ignore: cast_nullable_to_non_nullable
@@ -160,12 +160,12 @@ abstract class _$$HomeBlocDataImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {AbsenceEntity? absences,
+      {List<AbsencePayload> absences,
       List<AbsencePayload> visibleList,
       List<AbsencePayload> filterByDateList,
       List<AbsencePayload> filterByTyeSickness,
       List<AbsencePayload> filterByTypeVacation,
-      MembersEntity? members,
+      List<MembersPayload> members,
       DateTime? startDate,
       DateTime? endDate,
       FilterType filterType,
@@ -187,12 +187,12 @@ class __$$HomeBlocDataImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? absences = freezed,
+    Object? absences = null,
     Object? visibleList = null,
     Object? filterByDateList = null,
     Object? filterByTyeSickness = null,
     Object? filterByTypeVacation = null,
-    Object? members = freezed,
+    Object? members = null,
     Object? startDate = freezed,
     Object? endDate = freezed,
     Object? filterType = null,
@@ -203,10 +203,10 @@ class __$$HomeBlocDataImplCopyWithImpl<$Res>
     Object? endIndex = null,
   }) {
     return _then(_$HomeBlocDataImpl(
-      absences: freezed == absences
-          ? _value.absences
+      absences: null == absences
+          ? _value._absences
           : absences // ignore: cast_nullable_to_non_nullable
-              as AbsenceEntity?,
+              as List<AbsencePayload>,
       visibleList: null == visibleList
           ? _value._visibleList
           : visibleList // ignore: cast_nullable_to_non_nullable
@@ -223,10 +223,10 @@ class __$$HomeBlocDataImplCopyWithImpl<$Res>
           ? _value._filterByTypeVacation
           : filterByTypeVacation // ignore: cast_nullable_to_non_nullable
               as List<AbsencePayload>,
-      members: freezed == members
-          ? _value.members
+      members: null == members
+          ? _value._members
           : members // ignore: cast_nullable_to_non_nullable
-              as MembersEntity?,
+              as List<MembersPayload>,
       startDate: freezed == startDate
           ? _value.startDate
           : startDate // ignore: cast_nullable_to_non_nullable
@@ -267,12 +267,12 @@ class __$$HomeBlocDataImplCopyWithImpl<$Res>
 
 class _$HomeBlocDataImpl implements _HomeBlocData {
   const _$HomeBlocDataImpl(
-      {this.absences,
+      {final List<AbsencePayload> absences = const [],
       final List<AbsencePayload> visibleList = const [],
       final List<AbsencePayload> filterByDateList = const [],
       final List<AbsencePayload> filterByTyeSickness = const [],
       final List<AbsencePayload> filterByTypeVacation = const [],
-      this.members,
+      final List<MembersPayload> members = const [],
       this.startDate,
       this.endDate,
       this.filterType = FilterType.CLEAR,
@@ -281,13 +281,22 @@ class _$HomeBlocDataImpl implements _HomeBlocData {
       this.totalLength = 0,
       this.startIndex = 0,
       this.endIndex = 10})
-      : _visibleList = visibleList,
+      : _absences = absences,
+        _visibleList = visibleList,
         _filterByDateList = filterByDateList,
         _filterByTyeSickness = filterByTyeSickness,
-        _filterByTypeVacation = filterByTypeVacation;
+        _filterByTypeVacation = filterByTypeVacation,
+        _members = members;
 
+  final List<AbsencePayload> _absences;
   @override
-  final AbsenceEntity? absences;
+  @JsonKey()
+  List<AbsencePayload> get absences {
+    if (_absences is EqualUnmodifiableListView) return _absences;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_absences);
+  }
+
   final List<AbsencePayload> _visibleList;
   @override
   @JsonKey()
@@ -327,8 +336,15 @@ class _$HomeBlocDataImpl implements _HomeBlocData {
     return EqualUnmodifiableListView(_filterByTypeVacation);
   }
 
+  final List<MembersPayload> _members;
   @override
-  final MembersEntity? members;
+  @JsonKey()
+  List<MembersPayload> get members {
+    if (_members is EqualUnmodifiableListView) return _members;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_members);
+  }
+
   @override
   final DateTime? startDate;
   @override
@@ -362,8 +378,7 @@ class _$HomeBlocDataImpl implements _HomeBlocData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$HomeBlocDataImpl &&
-            (identical(other.absences, absences) ||
-                other.absences == absences) &&
+            const DeepCollectionEquality().equals(other._absences, _absences) &&
             const DeepCollectionEquality()
                 .equals(other._visibleList, _visibleList) &&
             const DeepCollectionEquality()
@@ -372,7 +387,7 @@ class _$HomeBlocDataImpl implements _HomeBlocData {
                 .equals(other._filterByTyeSickness, _filterByTyeSickness) &&
             const DeepCollectionEquality()
                 .equals(other._filterByTypeVacation, _filterByTypeVacation) &&
-            (identical(other.members, members) || other.members == members) &&
+            const DeepCollectionEquality().equals(other._members, _members) &&
             (identical(other.startDate, startDate) ||
                 other.startDate == startDate) &&
             (identical(other.endDate, endDate) || other.endDate == endDate) &&
@@ -392,12 +407,12 @@ class _$HomeBlocDataImpl implements _HomeBlocData {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      absences,
+      const DeepCollectionEquality().hash(_absences),
       const DeepCollectionEquality().hash(_visibleList),
       const DeepCollectionEquality().hash(_filterByDateList),
       const DeepCollectionEquality().hash(_filterByTyeSickness),
       const DeepCollectionEquality().hash(_filterByTypeVacation),
-      members,
+      const DeepCollectionEquality().hash(_members),
       startDate,
       endDate,
       filterType,
@@ -416,12 +431,12 @@ class _$HomeBlocDataImpl implements _HomeBlocData {
 
 abstract class _HomeBlocData implements HomeBlocData {
   const factory _HomeBlocData(
-      {final AbsenceEntity? absences,
+      {final List<AbsencePayload> absences,
       final List<AbsencePayload> visibleList,
       final List<AbsencePayload> filterByDateList,
       final List<AbsencePayload> filterByTyeSickness,
       final List<AbsencePayload> filterByTypeVacation,
-      final MembersEntity? members,
+      final List<MembersPayload> members,
       final DateTime? startDate,
       final DateTime? endDate,
       final FilterType filterType,
@@ -432,7 +447,7 @@ abstract class _HomeBlocData implements HomeBlocData {
       final int endIndex}) = _$HomeBlocDataImpl;
 
   @override
-  AbsenceEntity? get absences;
+  List<AbsencePayload> get absences;
   @override
   List<AbsencePayload> get visibleList;
   @override
@@ -442,7 +457,7 @@ abstract class _HomeBlocData implements HomeBlocData {
   @override
   List<AbsencePayload> get filterByTypeVacation;
   @override
-  MembersEntity? get members;
+  List<MembersPayload> get members;
   @override
   DateTime? get startDate;
   @override

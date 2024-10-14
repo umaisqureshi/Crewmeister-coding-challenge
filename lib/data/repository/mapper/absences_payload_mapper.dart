@@ -1,17 +1,5 @@
 import 'package:crewmeister_coding_challenge/data/data.dart';
 
-class AbsencesEntityMapper extends EntityMapper<AbsenceEntity, AbsenceDto> {
-  const AbsencesEntityMapper();
-
-  @override
-  AbsenceEntity mapToEntity(AbsenceDto dto) {
-    return AbsenceEntity(
-        payload: dto.payload.map((e) {
-      return const AbsencesPayloadEntityMapper().mapToEntity(e);
-    }).toList());
-  }
-}
-
 class AbsencesPayloadEntityMapper
     extends EntityMapper<AbsencePayload, AbsencePayloadDto> {
   const AbsencesPayloadEntityMapper();

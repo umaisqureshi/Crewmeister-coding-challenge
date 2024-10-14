@@ -1,13 +1,5 @@
 import 'package:crewmeister_coding_challenge/data/data.dart';
 
-class MembersEntity extends Entity {
-  List<MembersPayload> payload;
-
-  MembersEntity({
-    required this.payload,
-  });
-}
-
 class MembersPayload extends Entity {
   int crewId;
   int id;

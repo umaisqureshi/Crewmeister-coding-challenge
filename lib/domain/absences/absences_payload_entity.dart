@@ -1,13 +1,5 @@
 import 'package:crewmeister_coding_challenge/domain/domain.dart';
 
-class AbsenceEntity extends Entity {
-  List<AbsencePayload> payload;
-
-  AbsenceEntity({
-    required this.payload,
-  });
-}
-
 class AbsencePayload extends Entity {
   int? admitterId;
   String admitterNote;

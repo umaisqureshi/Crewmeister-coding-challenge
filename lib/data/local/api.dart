@@ -2,33 +2,28 @@ import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:crewmeister_coding_challenge/data/data.dart';
 
-class ApiService {
-  final AbsenceDtoMapper _absenceDtoMapper = AbsenceDtoMapper();
-  final MembersDtoMapper _membersDtoMapper = MembersDtoMapper();
+Future<List<dynamic>> readJsonFile(String path) async {
+  String content = await rootBundle.loadString(path);
+  Map<String, dynamic> data = jsonDecode(content);
+  return data['payload'];
+}
 
-  Future<Map<String, dynamic>> readJsonFile(String path) async {
-    String content = await rootBundle.loadString(path);
-    Map<String, dynamic> data = jsonDecode(content);
-    return data;
+Future<List<dynamic>> absences() async {
+  List<dynamic> absences = [];
+  try {
+    absences = await readJsonFile(absencesPath);
+  } catch (e) {
+    throw Exception(e.toString());
   }
+  return absences;
+}
 
-  Future<AbsenceDto> absences() async {
-    Map<String, dynamic> absences = {};
-    try {
-      absences = await readJsonFile(absencesPath);
-    } catch (e) {
-      throw Exception(e.toString());
-    }
-    return _absenceDtoMapper.mapDtoToData(absences);
+Future<List<dynamic>> members() async {
+  List<dynamic> members = [];
+  try {
+    members = await readJsonFile(membersPath);
+  } catch (e) {
+    throw Exception(e.toString());
   }
-
-  Future<MembersDto> members() async {
-    Map<String, dynamic> members = {};
-    try {
-      members = await readJsonFile(membersPath);
-    } catch (e) {
-      throw Exception(e.toString());
-    }
-    return _membersDtoMapper.mapDtoToData(members);
-  }
+  return members;
 }

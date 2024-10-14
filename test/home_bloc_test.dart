@@ -17,7 +17,7 @@ class MockFilterBlocService extends Mock implements FilterBlocService {}
 class MockAbsencePayload extends Mock implements AbsencePayload {}
 
 class FakeAbsenceUseCaseResult extends Fake
-    implements UseCaseResult<AbsenceEntity> {}
+    implements UseCaseResult<List<AbsencePayload>> {}
 
 void main() {
   late HomeBloc homeBloc;

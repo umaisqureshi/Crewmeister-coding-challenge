@@ -1,12 +1,12 @@
 import 'package:crewmeister_coding_challenge/domain/domain.dart';
 
 @injectable
-class GetAllMembersUseCase extends SupplierUseCase<MembersEntity> {
-  final Repository _repository;
-  const GetAllMembersUseCase({required Repository repository})
+class GetAllMembersUseCase extends SupplierUseCase<List<MembersPayload>> {
+  final HomeRepository _repository;
+  const GetAllMembersUseCase({required HomeRepository repository})
       : _repository = repository;
   @override
-  Future<MembersEntity> task() {
+  Future<List<MembersPayload>> task() {
     return _repository.getAllMembers();
   }
 }

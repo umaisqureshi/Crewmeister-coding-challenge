@@ -6,7 +6,7 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:crewmeister_coding_challenge/data/data.dart' as _i3;
-import 'package:crewmeister_coding_challenge/data/repository/repository_impl.dart'
+import 'package:crewmeister_coding_challenge/data/repository/home_repository_impl.dart'
     as _i4;
 import 'package:crewmeister_coding_challenge/domain/absences/get_all_absences_use_case.dart'
     as _i5;
@@ -33,11 +33,11 @@ extension GetItInjectableX on _i1.GetIt {
       environment,
       environmentFilter,
     );
-    gh.factory<_i3.Repository>(() => _i4.RepositoryImplementation());
+    gh.factory<_i3.HomeRepository>(() => _i4.HomeRepositoryImp());
     gh.factory<_i5.GetAllAbsencesUseCase>(
-        () => _i5.GetAllAbsencesUseCase(repository: gh<_i6.Repository>()));
+        () => _i5.GetAllAbsencesUseCase(repository: gh<_i6.HomeRepository>()));
     gh.factory<_i7.GetAllMembersUseCase>(
-        () => _i7.GetAllMembersUseCase(repository: gh<_i6.Repository>()));
+        () => _i7.GetAllMembersUseCase(repository: gh<_i6.HomeRepository>()));
     gh.factory<_i8.HomeBloc>(() => _i8.HomeBloc(
           absencesUseCase: gh<_i9.GetAllAbsencesUseCase>(),
           membersUseCase: gh<_i9.GetAllMembersUseCase>(),

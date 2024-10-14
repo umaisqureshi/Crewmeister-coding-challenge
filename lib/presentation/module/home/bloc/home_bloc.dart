@@ -71,8 +71,7 @@ class HomeBloc extends BaseBloc<HomeEvent, HomeState> {
       emit(HomeErrorState());
       log(error.toString());
     }, onSuccess: (data) {
-      blocData =
-          blocData.copyWith(absences: data, totalLength: data.payload.length);
+      blocData = blocData.copyWith(absences: data, totalLength: data.length);
       add(GetAbsenceEvent());
     }));
   }
@@ -122,7 +121,7 @@ class HomeBloc extends BaseBloc<HomeEvent, HomeState> {
   }
 
   MembersPayload? getMemberData(int id) {
-    Iterable<MembersPayload> tempMembers = blocData.members!.payload;
+    Iterable<MembersPayload> tempMembers = blocData.members;
     MembersPayload? member =
         tempMembers.firstWhereOrNull((e) => e.userId == id);
     if (member != null) {
@@ -133,8 +132,8 @@ class HomeBloc extends BaseBloc<HomeEvent, HomeState> {
 
   Future<List<AbsencePayload>> getAbsenceList() async {
     if (!blocData.isFilterActive) {
-      await setTotalLength(blocData.absences!.payload.length);
-      return blocData.absences!.payload;
+      await setTotalLength(blocData.absences.length);
+      return blocData.absences;
     }
     switch (blocData.filterType) {
       case FilterType.SICKNESS:

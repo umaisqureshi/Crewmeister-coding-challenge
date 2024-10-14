@@ -1,17 +1,8 @@
 import 'package:crewmeister_coding_challenge/data/data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'members_dto.freezed.dart';
-part 'members_dto.g.dart';
-
-@freezed
-class MembersDto with _$MembersDto implements Dto {
-  const factory MembersDto(
-      {required String message,
-      required List<MembersPayloadDto> payload}) = _MembersDto;
-  factory MembersDto.fromJson(Map<String, dynamic> json) =>
-      _$MembersDtoFromJson(json);
-}
+part 'members_payload_dto.freezed.dart';
+part 'members_payload_dto.g.dart';
 
 @freezed
 class MembersPayloadDto with _$MembersPayloadDto implements Dto {

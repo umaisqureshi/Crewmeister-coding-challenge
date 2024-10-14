@@ -1,12 +1,12 @@
 import 'package:crewmeister_coding_challenge/domain/domain.dart';
 
 @injectable
-class GetAllAbsencesUseCase extends SupplierUseCase<AbsenceEntity> {
-  final Repository _repository;
-  const GetAllAbsencesUseCase({required Repository repository})
+class GetAllAbsencesUseCase extends SupplierUseCase<List<AbsencePayload>> {
+  final HomeRepository _repository;
+  const GetAllAbsencesUseCase({required HomeRepository repository})
       : _repository = repository;
   @override
-  Future<AbsenceEntity> task() {
+  Future<List<AbsencePayload>> task() {
     return _repository.getAllAbsences();
   }
 }

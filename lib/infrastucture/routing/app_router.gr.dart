@@ -9,7 +9,7 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i2;
-import 'package:crewmeister_coding_challenge/infrastucture/providers/home_screen_provider.dart'
+import 'package:crewmeister_coding_challenge/infrastucture/providers/home_route_provider.dart'
     as _i1;
 
 abstract class $AppRouter extends _i2.RootStackRouter {
