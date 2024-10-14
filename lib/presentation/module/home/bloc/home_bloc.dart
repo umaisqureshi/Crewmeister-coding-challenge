@@ -9,7 +9,6 @@ class HomeBloc extends BaseBloc<HomeEvent, HomeState> {
   final GetAllAbsencesUseCase _absencesUseCase;
   final GetAllMembersUseCase _membersUseCase;
   late final FilterBlocService filterBlocService;
-
   HomeBlocData blocData = const HomeBlocData();
 
   HomeBloc({
