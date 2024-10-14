@@ -32,8 +32,10 @@ class AbsenceListComponent extends ErrorWidgetComponent<HomeBloc, HomeState,
   @override
   Widget buildError(BuildContext context, errorState) {
     return ErrorScreenWidget(
-      onPressed: () {
-        context.read<HomeBloc>().add(GetAllMembersEvent());
+      onPressed: () async {
+        Future.delayed(const Duration(seconds: 1), () {
+          context.read<HomeBloc>().add(GetAllMembersEvent());
+        });
       },
     );
   }

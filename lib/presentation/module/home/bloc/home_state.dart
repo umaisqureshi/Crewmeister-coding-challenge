@@ -10,7 +10,7 @@ class HomeInitial extends HomeState {
 
 class HomeErrorState extends HomeState {
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [DateTime.now()];
 }
 
 class FilterState extends HomeState {
