@@ -5,36 +5,41 @@ class FilterBlocService {
   const FilterBlocService({required HomeBloc bloc}) : _bloc = bloc;
 
   List<AbsencePayload> filterByCreatedAt() {
-    List<AbsencePayload> filterByDate = _bloc.blocData.absences;
-    DateTime startDate = _bloc.blocData.startDate ?? DateTime.now();
-    DateTime endDate = _bloc.blocData.endDate ?? DateTime.now();
+    final List<AbsencePayload> absences = _bloc.blocData.absences;
+    final DateTime startDate = _bloc.blocData.startDate ?? DateTime.now();
+    final DateTime endDate = _bloc.blocData.endDate ?? DateTime.now();
 
-    List<AbsencePayload> tempList = filterByDate.where((absence) {
-      return (absence.createdAt.isAtSameMomentAs(startDate) ||
-              absence.createdAt.isAfter(startDate)) &&
-          (absence.createdAt.isAtSameMomentAs(endDate) ||
-              absence.createdAt.isBefore(endDate));
+    final List<AbsencePayload> filteredList = absences.where((absence) {
+      final createdAt = absence.createdAt;
+      return (createdAt.isAtSameMomentAs(startDate) ||
+              createdAt.isAfter(startDate)) &&
+          (createdAt.isAtSameMomentAs(endDate) || createdAt.isBefore(endDate));
     }).toList();
 
-    _bloc.blocData = _bloc.blocData.copyWith(filterByDateList: tempList);
+    _bloc.blocData = _bloc.blocData.copyWith(filterByDateList: filteredList);
     return _bloc.blocData.filterByDateList;
   }
 
-  List<AbsencePayload> filterBySickness() {
-    List<AbsencePayload> filterBySickness = _bloc.blocData.absences;
-    Iterable<AbsencePayload> sickness =
-        filterBySickness.where((e) => e.type == Type.SICKNESS);
-    _bloc.blocData =
-        _bloc.blocData.copyWith(filterByTyeSickness: sickness.toList());
-    return _bloc.blocData.filterByTyeSickness;
+  List<AbsencePayload> filterByType(Type absenceType) {
+    final List<AbsencePayload> absences = _bloc.blocData.absences;
+    final List<AbsencePayload> filteredList =
+        absences.where((absence) => absence.type == absenceType).toList();
+
+    switch (absenceType) {
+      case Type.SICKNESS:
+        _bloc.blocData =
+            _bloc.blocData.copyWith(filterByTyeSickness: filteredList);
+        return _bloc.blocData.filterByTyeSickness;
+      case Type.VACATION:
+        _bloc.blocData =
+            _bloc.blocData.copyWith(filterByTypeVacation: filteredList);
+        return _bloc.blocData.filterByTypeVacation;
+      default:
+        return [];
+    }
   }
 
-  List<AbsencePayload> filterByVacation() {
-    List<AbsencePayload> filterBySickness = _bloc.blocData.absences;
-    Iterable<AbsencePayload> vacation =
-        filterBySickness.where((e) => e.type == Type.VACATION);
-    _bloc.blocData =
-        _bloc.blocData.copyWith(filterByTypeVacation: vacation.toList());
-    return _bloc.blocData.filterByTypeVacation;
-  }
+  List<AbsencePayload> filterBySickness() => filterByType(Type.SICKNESS);
+
+  List<AbsencePayload> filterByVacation() => filterByType(Type.VACATION);
 }

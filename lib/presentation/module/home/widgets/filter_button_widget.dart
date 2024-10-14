@@ -1,4 +1,3 @@
-import 'package:crewmeister_coding_challenge/presentation/module/home/widgets/date_filter_widget.dart';
 import 'package:crewmeister_coding_challenge/presentation/presentation.dart';
 
 class FilterButtonWidget extends StatefulWidget {
@@ -237,19 +236,18 @@ class _FilterButtonWidgetState extends State<FilterButtonWidget> {
       child: GestureDetector(
         onTap: () {
           if (startDate != null && endDate != null) {
-            context
-                .read<HomeBloc>()
-                .add(const GetFilterAbsenceEvent(type: FilterType.DATE));
-
+            if (startDate!.isAfter(endDate!)) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                  getSnackBar(context, "Start date cannot be after end date"));
+            } else {
+              context
+                  .read<HomeBloc>()
+                  .add(const GetFilterAbsenceEvent(type: FilterType.DATE));
+            }
             Navigator.of(context).pop();
           } else {
-            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                backgroundColor: context.appColorScheme.primary,
-                content: Text(
-                  "Please select start and end both dates",
-                  style:
-                      TextStyle(color: context.appColorScheme.backgroundColor),
-                )));
+            ScaffoldMessenger.of(context).showSnackBar(
+                getSnackBar(context, "Please select start and end both dates"));
           }
         },
         child: Container(

@@ -1,4 +1,3 @@
-import 'package:crewmeister_coding_challenge/infrastucture/routing/app_router.dart';
 import 'package:crewmeister_coding_challenge/presentation/presentation.dart';
 import 'package:flutter/services.dart';
 import 'infrastucture/di/app_dependency.dart';

@@ -29,12 +29,11 @@ void main() {
     registerFallbackValue(FakeAbsenceUseCaseResult());
     mockAbsencesUseCase = MockGetAllAbsencesUseCase();
     mockMembersUseCase = MockGetAllMembersUseCase();
-    mockFilterBlocService = MockFilterBlocService();
-
     homeBloc = HomeBloc(
         absencesUseCase: mockAbsencesUseCase,
         membersUseCase: mockMembersUseCase);
-    homeBloc.filterBlocService = mockFilterBlocService;
+
+    mockFilterBlocService = MockFilterBlocService();
   });
 
   tearDown(() {

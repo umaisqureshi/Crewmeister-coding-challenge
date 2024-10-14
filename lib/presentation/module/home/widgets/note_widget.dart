@@ -1,4 +1,3 @@
-import 'package:crewmeister_coding_challenge/infrastucture/infrastucture.dart';
 import 'package:crewmeister_coding_challenge/presentation/presentation.dart';
 
 class NoteWidget extends StatefulWidget {
