@@ -4,7 +4,6 @@ class ThemeStuff {
 
   static ThemeStuff get instance {
     _instance ??= ThemeStuff._init();
-
     return _instance!;
   }
 

@@ -7,7 +7,7 @@ abstract class EntityMapper<E extends Entity, D extends Dto> {
   E mapToEntity(D dto);
 }
 
-abstract class RemoteMapper<D> {
+sealed class RemoteMapper<D> {
   const RemoteMapper();
   D mapToData(dynamic result);
 }

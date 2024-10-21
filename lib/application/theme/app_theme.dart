@@ -1,6 +1,6 @@
 import 'package:crewmeister_coding_challenge/presentation/presentation.dart';
 
-abstract class AppColorScheme extends ColorScheme {
+sealed class AppColorScheme extends ColorScheme {
   const AppColorScheme._light(
       {required Color primary,
       required Color onPrimary,

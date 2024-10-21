@@ -1,14 +1,14 @@
 import 'package:crewmeister_coding_challenge/presentation/presentation.dart';
 
 @RoutePage()
-class HomeRouteProvider extends StatefulWidget {
-  const HomeRouteProvider({super.key});
+class HomeScreenProvider extends StatefulWidget {
+  const HomeScreenProvider({super.key});
 
   @override
-  State<HomeRouteProvider> createState() => _HomeRouteProviderState();
+  State<HomeScreenProvider> createState() => _HomeScreenProviderState();
 }
 
-class _HomeRouteProviderState extends State<HomeRouteProvider> {
+class _HomeScreenProviderState extends State<HomeScreenProvider> {
   final GetIt getIt = GetIt.instance;
 
   @override

@@ -3,7 +3,7 @@ import 'package:crewmeister_coding_challenge/application/application.dart';
 typedef OnSuccess<T> = void Function(T data);
 typedef OnError = void Function(Exception error);
 
-abstract class UseCase {
+sealed class UseCase {
   const UseCase();
 }
 
@@ -14,7 +14,6 @@ class UseCaseResult<E> {
 
   UseCaseResult({this.onSuccess, this.onError, this.onFinished});
 }
-
 
 abstract class SupplierUseCase<E> implements UseCase {
   const SupplierUseCase();

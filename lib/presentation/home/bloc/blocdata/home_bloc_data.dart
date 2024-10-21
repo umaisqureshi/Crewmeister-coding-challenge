@@ -2,7 +2,7 @@ import 'package:crewmeister_coding_challenge/presentation/presentation.dart';
 part 'home_bloc_data.freezed.dart';
 
 @freezed
-class HomeBlocData with _$HomeBlocData {
+sealed class HomeBlocData with _$HomeBlocData {
   const factory HomeBlocData({
     @Default([]) List<AbsencePayload> absences,
     @Default([]) List<AbsencePayload> visibleList,

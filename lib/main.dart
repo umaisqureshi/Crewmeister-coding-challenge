@@ -13,14 +13,6 @@ void main() async {
   runApp(const MyApp());
 }
 
-class ThemeNotifier extends ValueNotifier<ThemeData> {
-  ThemeNotifier(super.value);
-  void updateTheme(ColorScheme colorScheme) {
-    value = ThemeData(colorScheme: colorScheme);
-    notifyListeners();
-  }
-}
-
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
@@ -38,7 +30,7 @@ class _MyAppState extends State<MyApp> {
       valueListenable: appValueNotifier.theme,
       builder: (context, colorScheme, _) {
         return MaterialApp.router(
-          title: 'Crewmeister',
+          title: 'Crew  Meister',
           theme: ThemeData(
               colorScheme: colorScheme,
               useMaterial3: true,

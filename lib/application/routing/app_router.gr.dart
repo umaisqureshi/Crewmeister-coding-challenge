@@ -9,7 +9,7 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i2;
-import 'package:crewmeister_coding_challenge/presentation/home/providers/home_route_provider.dart'
+import 'package:crewmeister_coding_challenge/presentation/home/providers/home_screen_provider.dart'
     as _i1;
 
 abstract class $AppRouter extends _i2.RootStackRouter {
@@ -20,14 +20,14 @@ abstract class $AppRouter extends _i2.RootStackRouter {
     HomeRouteProvider.name: (routeData) {
       return _i2.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i1.HomeRouteProvider(),
+        child: const _i1.HomeScreenProvider(),
       );
     }
   };
 }
 
 /// generated route for
-/// [_i1.HomeRouteProvider]
+/// [_i1.HomeScreenProvider]
 class HomeRouteProvider extends _i2.PageRouteInfo<void> {
   const HomeRouteProvider({List<_i2.PageRouteInfo>? children})
       : super(
