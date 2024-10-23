@@ -30,7 +30,7 @@ class _MyAppState extends State<MyApp> {
       valueListenable: appValueNotifier.theme,
       builder: (context, colorScheme, _) {
         return MaterialApp.router(
-          title: 'Crew  Meister',
+          title: 'Absence Management',
           theme: ThemeData(
               colorScheme: colorScheme,
               useMaterial3: true,

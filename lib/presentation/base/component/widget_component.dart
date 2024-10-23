@@ -25,3 +25,4 @@ abstract class WidgetComponent<Bloc extends BlocBase<BlocState>, BlocState,
     return current is CurrentState;
   }
 }
+

@@ -2,7 +2,7 @@
   <img src="https://crewmeister.com/images/logo_crewmeister_without_text.svg" />
 </p>
 
-# 🚀 Crewmeister coding challenge - Frontend (Flutter)
+# 🚀 Absence Management
 
 A Flutter project with Clean Architecture using Flutter Bloc State Management with
 combination of Repository pattern.
