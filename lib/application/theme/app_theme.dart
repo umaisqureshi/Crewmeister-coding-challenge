@@ -35,6 +35,7 @@ sealed class AppColorScheme extends ColorScheme {
     return const _DarkColorScheme._();
   }
 
+  String get themeType; // New abstract property to identify the theme type
   Color get backgroundColor;
 }
 
@@ -49,6 +50,9 @@ class _LightColorScheme extends AppColorScheme {
 
   @override
   final Color backgroundColor = Colors.white;
+
+  @override
+  String get themeType => 'light';
 }
 
 class _DarkColorScheme extends AppColorScheme {
@@ -62,4 +66,7 @@ class _DarkColorScheme extends AppColorScheme {
 
   @override
   Color get backgroundColor => Colors.black;
+
+  @override
+  String get themeType => 'dark';
 }

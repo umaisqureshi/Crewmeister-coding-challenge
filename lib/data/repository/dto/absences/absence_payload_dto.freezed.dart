@@ -33,8 +33,12 @@ mixin _$AbsencePayloadDto {
   String get type => throw _privateConstructorUsedError;
   int get userId => throw _privateConstructorUsedError;
 
+  /// Serializes this AbsencePayloadDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of AbsencePayloadDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AbsencePayloadDtoCopyWith<AbsencePayloadDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -70,6 +74,8 @@ class _$AbsencePayloadDtoCopyWithImpl<$Res, $Val extends AbsencePayloadDto>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of AbsencePayloadDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -170,6 +176,8 @@ class __$$AbsencePayloadDtoImplCopyWithImpl<$Res>
       $Res Function(_$AbsencePayloadDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of AbsencePayloadDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -315,7 +323,7 @@ class _$AbsencePayloadDtoImpl implements _AbsencePayloadDto {
             (identical(other.userId, userId) || other.userId == userId));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -332,7 +340,9 @@ class _$AbsencePayloadDtoImpl implements _AbsencePayloadDto {
       type,
       userId);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of AbsencePayloadDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AbsencePayloadDtoImplCopyWith<_$AbsencePayloadDtoImpl> get copyWith =>
@@ -389,8 +399,11 @@ abstract class _AbsencePayloadDto implements AbsencePayloadDto {
   String get type;
   @override
   int get userId;
+
+  /// Create a copy of AbsencePayloadDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AbsencePayloadDtoImplCopyWith<_$AbsencePayloadDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

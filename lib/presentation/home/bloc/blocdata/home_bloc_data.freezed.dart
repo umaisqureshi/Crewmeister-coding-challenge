@@ -34,7 +34,9 @@ mixin _$HomeBlocData {
   int get startIndex => throw _privateConstructorUsedError;
   int get endIndex => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HomeBlocData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $HomeBlocDataCopyWith<HomeBlocData> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -72,6 +74,8 @@ class _$HomeBlocDataCopyWithImpl<$Res, $Val extends HomeBlocData>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of HomeBlocData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -184,6 +188,8 @@ class __$$HomeBlocDataImplCopyWithImpl<$Res>
       _$HomeBlocDataImpl _value, $Res Function(_$HomeBlocDataImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of HomeBlocData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -422,7 +428,9 @@ class _$HomeBlocDataImpl implements _HomeBlocData {
       startIndex,
       endIndex);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HomeBlocData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$HomeBlocDataImplCopyWith<_$HomeBlocDataImpl> get copyWith =>
@@ -474,8 +482,11 @@ abstract class _HomeBlocData implements HomeBlocData {
   int get startIndex;
   @override
   int get endIndex;
+
+  /// Create a copy of HomeBlocData
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$HomeBlocDataImplCopyWith<_$HomeBlocDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

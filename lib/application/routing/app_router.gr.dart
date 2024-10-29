@@ -12,20 +12,6 @@ import 'package:auto_route/auto_route.dart' as _i2;
 import 'package:crewmeister_coding_challenge/presentation/home/providers/home_screen_provider.dart'
     as _i1;
 
-abstract class $AppRouter extends _i2.RootStackRouter {
-  $AppRouter({super.navigatorKey});
-
-  @override
-  final Map<String, _i2.PageFactory> pagesMap = {
-    HomeRouteProvider.name: (routeData) {
-      return _i2.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i1.HomeScreenProvider(),
-      );
-    }
-  };
-}
-
 /// generated route for
 /// [_i1.HomeScreenProvider]
 class HomeRouteProvider extends _i2.PageRouteInfo<void> {
@@ -37,5 +23,10 @@ class HomeRouteProvider extends _i2.PageRouteInfo<void> {
 
   static const String name = 'HomeRouteProvider';
 
-  static const _i2.PageInfo<void> page = _i2.PageInfo<void>(name);
+  static _i2.PageInfo page = _i2.PageInfo(
+    name,
+    builder: (data) {
+      return const _i1.HomeScreenProvider();
+    },
+  );
 }

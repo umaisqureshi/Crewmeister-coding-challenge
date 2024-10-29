@@ -10,3 +10,5 @@ export 'package:flutter_bloc/flutter_bloc.dart';
 export 'package:get_it/get_it.dart';
 export 'package:injectable/injectable.dart';
 export 'package:crewmeister_coding_challenge/application/theme/app_theme.dart';
+export 'package:equatable/equatable.dart';
+export 'package:hydrated_bloc/hydrated_bloc.dart';
