@@ -2,7 +2,7 @@ import 'package:crewmeister_coding_challenge/application/application.dart';
 import 'app_router.gr.dart';
 
 @AutoRouterConfig()
-class AppRouter extends $AppRouter {
+class AppRouter extends RootStackRouter {
   @override
   List<AutoRoute> get routes => [
         AutoRoute(

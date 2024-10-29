@@ -26,8 +26,12 @@ mixin _$MembersPayloadDto {
   String get name => throw _privateConstructorUsedError;
   int get userId => throw _privateConstructorUsedError;
 
+  /// Serializes this MembersPayloadDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MembersPayloadDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MembersPayloadDtoCopyWith<MembersPayloadDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -51,6 +55,8 @@ class _$MembersPayloadDtoCopyWithImpl<$Res, $Val extends MembersPayloadDto>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MembersPayloadDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -104,6 +110,8 @@ class __$$MembersPayloadDtoImplCopyWithImpl<$Res>
       $Res Function(_$MembersPayloadDtoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MembersPayloadDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -179,11 +187,13 @@ class _$MembersPayloadDtoImpl implements _MembersPayloadDto {
             (identical(other.userId, userId) || other.userId == userId));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, crewId, id, image, name, userId);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MembersPayloadDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MembersPayloadDtoImplCopyWith<_$MembersPayloadDtoImpl> get copyWith =>
@@ -219,8 +229,11 @@ abstract class _MembersPayloadDto implements MembersPayloadDto {
   String get name;
   @override
   int get userId;
+
+  /// Create a copy of MembersPayloadDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MembersPayloadDtoImplCopyWith<_$MembersPayloadDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
